@@ -56,7 +56,7 @@ class board:
     board.row = row
     self.bombs = bombs
     board.screen = screen
-    self.Count = board.row*board.column-self.bombs
+    self.Count = (board.row*board.column)-self.bombs
     
  
           
@@ -159,6 +159,7 @@ class board:
        # self.board = []
     #if row >= 0 and column >=0 and row < self.row and column < self.column:
       
+    
 
   def draw(self):
     for h in self.board:
@@ -166,6 +167,9 @@ class board:
           k.draw()
 
   def pick(self, row, column):
+   
+  
+  
     #print(row, column)
     
     if row >= 0 and column >=0 and row < self.row and column < self.column:
@@ -180,17 +184,22 @@ class board:
 
 
     if value > 0 and not self.board[row][column].hide:
-      #print('hello')
+      print(self.Count)
       self.board[row][column].hide = True
       self.Count -=1
+      if self.Count == 0:
+        print('you have won')
+        pygame.quit()
       return 1
+      
+      
     
     elif value == 0 and not self.board[row][column].hide:
       self.board[row][column].hide = True
       self.draw()
       pygame.display.update()
-     
-      print(row,column)
+      print(self.Count)
+      #print(row,column)
       self.Count -=1
       self.pick(row-1, column-1)
       self.pick(row-1, column)
@@ -200,13 +209,8 @@ class board:
       self.pick(row+1, column-1)
       self.pick(row+1, column)
       self.pick(row+1, column+1)
+     
 
-    
-   
-    if self.Count == 0:
-      print('you have won')
-      pygame.quit()
-  
 
 
 
