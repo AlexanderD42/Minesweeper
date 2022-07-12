@@ -9,7 +9,7 @@ WIDTH, HEIGHT = 400,400
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Minesweeper Alex Addition')
 screen.fill((0, 0, 0))
-board1 = board(10, 12, 10, screen)
+board1 = board(10, 12, 7, screen)
 board1.draw()
 Loser = ['Good Job, You Lost!', 'You do know that you dont click the bombs...right...?', 'Loser', 'Defeat', 'You have died...']
 
@@ -32,6 +32,8 @@ while True:
             if board1.board[t][g].rect.collidepoint(pos) and board1.board[t][g].flag == False and board1.board[t][g].hide == False:
               print(t, g)
               if board1.board[t][g].bomb == True:
+                board1.board[t][g].hide = True
+                board1.draw()
                 pygame.display.flip()
                 time.sleep(1)
                 pygame.quit()

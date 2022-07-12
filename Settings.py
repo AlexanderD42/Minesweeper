@@ -70,6 +70,7 @@ class board:
         self.board[i].append(tile(i, j))
         
     bombsPlaced = bombs
+
     while bombsPlaced > 0:
       #print(bombsPlaced)
       # Adds all bombs and updates the numbers
@@ -80,76 +81,77 @@ class board:
             if random.randint(0, 35) == 1 and self.board[h][k].bomb == False:
               
               self.board[h][k].bomb = True
-              # Top Left Corner
-              if h == 0 and k == 0:
-                self.board[h][k+1].number += 1
-                self.board[h+1][k].number += 1
-                self.board[h+1][k+1].number += 1
+              self.UpdateNumbers(h, k)
+              # # Top Left Corner
+              # if h == 0 and k == 0:
+              #   self.board[h][k+1].number += 1
+              #   self.board[h+1][k].number += 1
+              #   self.board[h+1][k+1].number += 1
 
-              # Top Right Corner
-              elif h == 0 and k == column-1:
+              # # Top Right Corner
+              # elif h == 0 and k == column-1:
 
-                self.board[h][k-1].number += 1
-                self.board[h+1][k-1].number += 1
-                self.board[h+1][k].number += 1
+              #   self.board[h][k-1].number += 1
+              #   self.board[h+1][k-1].number += 1
+              #   self.board[h+1][k].number += 1
 
-              # Bottom Left Corner
-              elif h == row-1 and k == 0:
-                self.board[h-1][k].number += 1
-                self.board[h][k+1].number += 1
-                self.board[h-1][k+1].number += 1
+              # # Bottom Left Corner
+              # elif h == row-1 and k == 0:
+              #   self.board[h-1][k].number += 1
+              #   self.board[h][k+1].number += 1
+              #   self.board[h-1][k+1].number += 1
 
 
-              # Bottom right corner
-              elif h == row-1 and k == column-1:
-                self.board[h-1][k].number += 1
-                self.board[h][k-1].number += 1
-                self.board[h-1][k-1].number += 1
+              # # Bottom right corner
+              # elif h == row-1 and k == column-1:
+              #   self.board[h-1][k].number += 1
+              #   self.board[h][k-1].number += 1
+              #   self.board[h-1][k-1].number += 1
 
-              # Checking sides
-              else:
-                # Top row
-                if h == 0:
-                  self.board[h+1][k].number += 1
-                  self.board[h][k-1].number += 1
-                  self.board[h][k+1].number += 1
-                  self.board[h+1][k+1].number += 1
-                  self.board[h+1][k-1].number += 1
+              # # Checking sides
+              # else:
+              #   # Top row
+              #   if h == 0:
+              #     self.board[h+1][k].number += 1
+              #     self.board[h][k-1].number += 1
+              #     self.board[h][k+1].number += 1
+              #     self.board[h+1][k+1].number += 1
+              #     self.board[h+1][k-1].number += 1
 
-                # Bottom row
-                elif h == row-1:
-                  self.board[h-1][k].number += 1
-                  self.board[h][k-1].number += 1
-                  self.board[h][k+1].number += 1
-                  self.board[h-1][k-1].number += 1
-                  self.board[h-1][k+1].number += 1
+              #   # Bottom row
+              #   elif h == row-1:
+              #     self.board[h-1][k].number += 1
+              #     self.board[h][k-1].number += 1
+              #     self.board[h][k+1].number += 1
+              #     self.board[h-1][k-1].number += 1
+              #     self.board[h-1][k+1].number += 1
 
-                # Left column
-                elif k == 0:
-                  self.board[h+1][k].number += 1
-                  self.board[h-1][k].number += 1
-                  self.board[h][k+1].number += 1
-                  self.board[h-1][k+1].number += 1
-                  self.board[h+1][k+1].number += 1
+              #   # Left column
+              #   elif k == 0:
+              #     self.board[h+1][k].number += 1
+              #     self.board[h-1][k].number += 1
+              #     self.board[h][k+1].number += 1
+              #     self.board[h-1][k+1].number += 1
+              #     self.board[h+1][k+1].number += 1
 
-                # Right column
-                elif k == column-1:
-                  self.board[h-1][k].number += 1
-                  self.board[h+1][k].number += 1
-                  self.board[h][k-1].number += 1
-                  self.board[h-1][k-1].number += 1
-                  self.board[h+1][k-1].number += 1
+              #   # Right column
+              #   elif k == column-1:
+              #     self.board[h-1][k].number += 1
+              #     self.board[h+1][k].number += 1
+              #     self.board[h][k-1].number += 1
+              #     self.board[h-1][k-1].number += 1
+              #     self.board[h+1][k-1].number += 1
 
-                # not on the sides of the board
-                else:
-                  self.board[h-1][k].number += 1
-                  self.board[h+1][k].number += 1
-                  self.board[h][k-1].number += 1
-                  self.board[h][k+1].number += 1
-                  self.board[h-1][k-1].number += 1
-                  self.board[h-1][k+1].number += 1
-                  self.board[h+1][k+1].number += 1
-                  self.board[h+1][k-1].number += 1
+              #   # not on the sides of the board
+              #   else:
+              #     self.board[h-1][k].number += 1
+              #     self.board[h+1][k].number += 1
+              #     self.board[h][k-1].number += 1
+              #     self.board[h][k+1].number += 1
+              #     self.board[h-1][k-1].number += 1
+              #     self.board[h-1][k+1].number += 1
+              #     self.board[h+1][k+1].number += 1
+              #     self.board[h+1][k-1].number += 1
               tile.bombs += 1
               bombsPlaced -= 1
               
@@ -160,6 +162,36 @@ class board:
     #if row >= 0 and column >=0 and row < self.row and column < self.column:
       
     
+  def UpdateNumbers(self, row, column):
+        
+    if row >= 0 and column >=0 and row < self.row and column < self.column:
+          
+      value = self.board[row][column].bomb
+      
+    else:
+
+      return
+
+
+    if value:
+      self.UpdateNumbers(row-1, column)
+      self.UpdateNumbers(row+1, column)
+      self.UpdateNumbers(row, column-1)
+      self.UpdateNumbers(row, column+1)
+      self.UpdateNumbers(row-1, column-1)
+      self.UpdateNumbers(row-1, column+1)
+      self.UpdateNumbers(row+1, column+1)
+      self.UpdateNumbers(row+1, column-1)
+      print('bomb updated')
+
+    else:
+      self.board[row][column].number += 1
+      return 1
+          
+      
+        
+
+
 
   def draw(self):
     for h in self.board:
@@ -184,7 +216,7 @@ class board:
 
 
     if value > 0 and not self.board[row][column].hide:
-      print(self.Count)
+      #print(self.Count)
       self.board[row][column].hide = True
       self.Count -=1
       if self.Count == 0:
@@ -198,7 +230,7 @@ class board:
       self.board[row][column].hide = True
       self.draw()
       pygame.display.update()
-      print(self.Count)
+      #print(self.Count)
       #print(row,column)
       self.Count -=1
       self.pick(row-1, column-1)
