@@ -82,76 +82,7 @@ class board:
               
               self.board[h][k].bomb = True
               self.UpdateNumbers(h, k)
-              # # Top Left Corner
-              # if h == 0 and k == 0:
-              #   self.board[h][k+1].number += 1
-              #   self.board[h+1][k].number += 1
-              #   self.board[h+1][k+1].number += 1
-
-              # # Top Right Corner
-              # elif h == 0 and k == column-1:
-
-              #   self.board[h][k-1].number += 1
-              #   self.board[h+1][k-1].number += 1
-              #   self.board[h+1][k].number += 1
-
-              # # Bottom Left Corner
-              # elif h == row-1 and k == 0:
-              #   self.board[h-1][k].number += 1
-              #   self.board[h][k+1].number += 1
-              #   self.board[h-1][k+1].number += 1
-
-
-              # # Bottom right corner
-              # elif h == row-1 and k == column-1:
-              #   self.board[h-1][k].number += 1
-              #   self.board[h][k-1].number += 1
-              #   self.board[h-1][k-1].number += 1
-
-              # # Checking sides
-              # else:
-              #   # Top row
-              #   if h == 0:
-              #     self.board[h+1][k].number += 1
-              #     self.board[h][k-1].number += 1
-              #     self.board[h][k+1].number += 1
-              #     self.board[h+1][k+1].number += 1
-              #     self.board[h+1][k-1].number += 1
-
-              #   # Bottom row
-              #   elif h == row-1:
-              #     self.board[h-1][k].number += 1
-              #     self.board[h][k-1].number += 1
-              #     self.board[h][k+1].number += 1
-              #     self.board[h-1][k-1].number += 1
-              #     self.board[h-1][k+1].number += 1
-
-              #   # Left column
-              #   elif k == 0:
-              #     self.board[h+1][k].number += 1
-              #     self.board[h-1][k].number += 1
-              #     self.board[h][k+1].number += 1
-              #     self.board[h-1][k+1].number += 1
-              #     self.board[h+1][k+1].number += 1
-
-              #   # Right column
-              #   elif k == column-1:
-              #     self.board[h-1][k].number += 1
-              #     self.board[h+1][k].number += 1
-              #     self.board[h][k-1].number += 1
-              #     self.board[h-1][k-1].number += 1
-              #     self.board[h+1][k-1].number += 1
-
-              #   # not on the sides of the board
-              #   else:
-              #     self.board[h-1][k].number += 1
-              #     self.board[h+1][k].number += 1
-              #     self.board[h][k-1].number += 1
-              #     self.board[h][k+1].number += 1
-              #     self.board[h-1][k-1].number += 1
-              #     self.board[h-1][k+1].number += 1
-              #     self.board[h+1][k+1].number += 1
-              #     self.board[h+1][k-1].number += 1
+              
               tile.bombs += 1
               bombsPlaced -= 1
               
