@@ -129,22 +129,14 @@ class board:
         for k in h:
           k.draw()
 
-  def pick(self, row, column):
-   
-  
-  
+  def pick(self, row, column):  
     #print(row, column)
     
     if row >= 0 and column >=0 and row < self.row and column < self.column:
-      
       value = self.board[row][column].number
       
     else:
-
       return
-
-    
-
 
     if value > 0 and not self.board[row][column].hide:
       #print(self.Count)
@@ -154,15 +146,11 @@ class board:
         print('you have won')
         pygame.quit()
       return 1
-      
-      
-    
+   
     elif value == 0 and not self.board[row][column].hide:
       self.board[row][column].hide = True
       self.draw()
       pygame.display.update()
-      #print(self.Count)
-      #print(row,column)
       self.Count -=1
       self.pick(row-1, column-1)
       self.pick(row-1, column)
